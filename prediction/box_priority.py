@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections import Counter
 from itertools import combinations,combinations_with_replacement
+from string import digits
 from typing import Any
 from weights import DEFAULT_WEIGHTS
 class BoxPriorityEngine:
@@ -40,7 +41,19 @@ class BoxPriorityEngine:
 
         scored: list[dict[str, Any]] = []
         if digits == 4:
-            candidate_iter = combinations_with_replacement(pool, digits)
+            # シングル候補
+            single_iter = combinations(pool, digits)
+
+            # ダブル候補（2個同じ数字）
+            double_iter = (
+                combo
+                for combo in combinations_with_replacement(pool, digits)
+                if len(set(combo)) == 3
+            )
+
+            import itertools
+            candidate_iter = itertools.chain(single_iter, double_iter)
+
         else:
             candidate_iter = combinations(pool, digits)
 
