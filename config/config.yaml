@@ -1,0 +1,17 @@
+project_name: NumbersAI_Ver13
+python_version: "3.12"
+database:
+  format: csv
+  path: database
+engines:
+  - numbers3
+  - numbers4
+  - loto6
+  - loto7
+  - miniloto
+features:
+  enable_engineering: true
+  rolling_backtest: true
+logging:
+  level: INFO
+  file: logs/app.log

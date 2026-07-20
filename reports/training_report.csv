@@ -1,0 +1,6 @@
+engine,rank_type,digits,combination,score
+numbers3,train,0,,1.0
+numbers4,train,0,,1.0
+miniloto,train,0,,1.0
+loto6,train,0,,1.0
+loto7,train,0,,1.0
